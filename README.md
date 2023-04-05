@@ -1,0 +1,2 @@
+# djangorest--practice
+📚 djangorest practice =)
