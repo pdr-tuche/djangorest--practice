@@ -6,10 +6,8 @@ class LivroSerializer(serializers.ModelSerializer):
         model = Livro
         fields = '__all__'
 
-
-
 class LivrariaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Livraria
-        fields = '__all__'
-        
+        fields = ['id', 'nome', 'livro']
+        depth=0

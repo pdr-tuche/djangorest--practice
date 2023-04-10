@@ -11,3 +11,7 @@ class LivroViewSet(viewsets.ModelViewSet):
 class LivrariaViewSet(viewsets.ModelViewSet):
     queryset = Livraria.objects.all()
     serializer_class = LivrariaSerializer
+
+   # def create(self, request, *args, **kwargs):
+    #    livraria_data = request.data
+     #   nova_livraria = Livraria.objects.create(livros=Livro.objects.get(id=livraria_data['livros']), nome = livraria_data['nome'])

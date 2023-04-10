@@ -7,14 +7,11 @@ class Livro(models.Model):
     autor = models.CharField(max_length=120)
 
     def __str__(self):
-        return 'titulo: {},autor: {}, numero de paginas: {}'.format(self.titulo, self.numero_paginas, self.autor)
+        return '{} - {}'.format(self.titulo,self.autor)
 
 class Livraria(models.Model):
     nome = models.CharField(max_length=120)
-    livros = models.ForeignKey(Livro, on_delete=models.CASCADE)
-    scores = serializers.ListField(
-        child=serializers.
-    )
+    livro = models.ManyToManyField(Livro, related_name="livro")
 
     def __str__(self):
-        return 'nome: Livraria {}'.format(self.nome)
+        return self.nome
