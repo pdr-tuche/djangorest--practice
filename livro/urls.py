@@ -4,7 +4,7 @@ from livro.views import LivroViewSet,LivrariaViewSet
 
 router = routers.DefaultRouter()
 
-router.register('livros/', LivroViewSet)
-router.register('livrarias/', LivrariaViewSet)
+router.register('livros', LivroViewSet)
+router.register('livrarias', LivrariaViewSet)
 
 urlpatterns = router.urls
