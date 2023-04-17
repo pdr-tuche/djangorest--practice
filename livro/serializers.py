@@ -10,4 +10,4 @@ class LivrariaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Livraria
         fields = ['id', 'nome', 'livro']
-        depth=0
+        depth=1

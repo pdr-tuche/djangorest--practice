@@ -1,6 +1,9 @@
-from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+
+from django_filters.rest_framework import DjangoFilterBackend
+
+from rest_framework.filters import OrderingFilter
 
 from livro.models import Livro, Livraria
 from livro.serializers import LivroSerializer, LivrariaSerializer
@@ -10,6 +13,18 @@ class LivroViewSet(viewsets.ModelViewSet):
     queryset = Livro.objects.all()
     serializer_class = LivroSerializer
 
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    ordering = ['titulo'] #ordenação padrao
+    filterset_fields = [ #especifica quais campos podem ser filtrados
+        'titulo',
+        'numero_paginas',
+        'autor'
+    ]
+
+    ordering_fields = [ #especifica quais campos podem ser ordenados
+        'titulo',
+        'numero_paginas',
+        'autor']
 
 class LivrariaViewSet(viewsets.ModelViewSet):
     queryset = Livraria.objects.all()
